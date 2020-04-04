@@ -1,0 +1,729 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns="urn:microsoft-dynamics-schemas/codeunit/ECommerce" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/ECommerce" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <schema elementFormDefault="qualified" targetNamespace="urn:microsoft-dynamics-schemas/codeunit/ECommerce" xmlns="http://www.w3.org/2001/XMLSchema">
+      <element name="GetItemImage">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="itemNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetItemImage_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AddToCart">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="customerNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="productId" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="quantity" type="decimal" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AddToCart_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CheckOut">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="customerNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CheckOut_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateCustomerAccount">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="customerNumber" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="CreateCustomerAccount_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ResetPassword">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="email" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="currentPassword" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="newPassword" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="confirmPassword" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ResetPassword_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCustomerStatement">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="customerNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dateForm" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="dateTo" type="date" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetCustomerStatement_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RemoveFromCart">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="customerNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="cartId" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RemoveFromCart_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AddToWishList">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="productId" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="customerNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AddToWishList_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RequestHelp">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="customerNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="subject" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="message" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="customerName" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="customerEmail" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="customerPhone" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RequestHelp_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RemoveFromWishlist">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="customerNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="cartId" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="RemoveFromWishlist_Result">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="AddToCartFromWishlist">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="customerNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="cartId" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="AddToCartFromWishlist_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GenerateInvoice">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="customerNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="invoiceNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GenerateInvoice_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SendOrderNotification">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="orderNo" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="SendOrderNotification_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ForgotPassword">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="email" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ForgotPassword_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnShowpass">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="custno" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnShowpass_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnBLOBCustomerStatement">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="customerrNo" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="dateFrom" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="dateTo" type="date" />
+            <element minOccurs="1" maxOccurs="1" name="bigText" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnBLOBCustomerStatement_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="bigText" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetOrderShipmentStatus">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="orderNumber" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="customerNumber" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="GetOrderShipmentStatus_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnRunJobs">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnRunJobs_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="boolean" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ForgotWEmailPassword">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="customerEmail" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="ForgotWEmailPassword_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnRandomize">
+        <complexType>
+          <sequence />
+        </complexType>
+      </element>
+      <element name="FnRandomize_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="int" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnRegister">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="firstname" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="lastname" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="middlename" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="phone" type="string" />
+            <element minOccurs="1" maxOccurs="1" name="email" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+      <element name="FnRegister_Result">
+        <complexType>
+          <sequence>
+            <element minOccurs="1" maxOccurs="1" name="return_value" type="string" />
+          </sequence>
+        </complexType>
+      </element>
+    </schema>
+  </types>
+  <message name="GetItemImage">
+    <part name="parameters" element="tns:GetItemImage" />
+  </message>
+  <message name="GetItemImage_Result">
+    <part name="parameters" element="tns:GetItemImage_Result" />
+  </message>
+  <message name="AddToCart">
+    <part name="parameters" element="tns:AddToCart" />
+  </message>
+  <message name="AddToCart_Result">
+    <part name="parameters" element="tns:AddToCart_Result" />
+  </message>
+  <message name="CheckOut">
+    <part name="parameters" element="tns:CheckOut" />
+  </message>
+  <message name="CheckOut_Result">
+    <part name="parameters" element="tns:CheckOut_Result" />
+  </message>
+  <message name="CreateCustomerAccount">
+    <part name="parameters" element="tns:CreateCustomerAccount" />
+  </message>
+  <message name="CreateCustomerAccount_Result">
+    <part name="parameters" element="tns:CreateCustomerAccount_Result" />
+  </message>
+  <message name="ResetPassword">
+    <part name="parameters" element="tns:ResetPassword" />
+  </message>
+  <message name="ResetPassword_Result">
+    <part name="parameters" element="tns:ResetPassword_Result" />
+  </message>
+  <message name="GetCustomerStatement">
+    <part name="parameters" element="tns:GetCustomerStatement" />
+  </message>
+  <message name="GetCustomerStatement_Result">
+    <part name="parameters" element="tns:GetCustomerStatement_Result" />
+  </message>
+  <message name="RemoveFromCart">
+    <part name="parameters" element="tns:RemoveFromCart" />
+  </message>
+  <message name="RemoveFromCart_Result">
+    <part name="parameters" element="tns:RemoveFromCart_Result" />
+  </message>
+  <message name="AddToWishList">
+    <part name="parameters" element="tns:AddToWishList" />
+  </message>
+  <message name="AddToWishList_Result">
+    <part name="parameters" element="tns:AddToWishList_Result" />
+  </message>
+  <message name="RequestHelp">
+    <part name="parameters" element="tns:RequestHelp" />
+  </message>
+  <message name="RequestHelp_Result">
+    <part name="parameters" element="tns:RequestHelp_Result" />
+  </message>
+  <message name="RemoveFromWishlist">
+    <part name="parameters" element="tns:RemoveFromWishlist" />
+  </message>
+  <message name="RemoveFromWishlist_Result">
+    <part name="parameters" element="tns:RemoveFromWishlist_Result" />
+  </message>
+  <message name="AddToCartFromWishlist">
+    <part name="parameters" element="tns:AddToCartFromWishlist" />
+  </message>
+  <message name="AddToCartFromWishlist_Result">
+    <part name="parameters" element="tns:AddToCartFromWishlist_Result" />
+  </message>
+  <message name="GenerateInvoice">
+    <part name="parameters" element="tns:GenerateInvoice" />
+  </message>
+  <message name="GenerateInvoice_Result">
+    <part name="parameters" element="tns:GenerateInvoice_Result" />
+  </message>
+  <message name="SendOrderNotification">
+    <part name="parameters" element="tns:SendOrderNotification" />
+  </message>
+  <message name="SendOrderNotification_Result">
+    <part name="parameters" element="tns:SendOrderNotification_Result" />
+  </message>
+  <message name="ForgotPassword">
+    <part name="parameters" element="tns:ForgotPassword" />
+  </message>
+  <message name="ForgotPassword_Result">
+    <part name="parameters" element="tns:ForgotPassword_Result" />
+  </message>
+  <message name="FnShowpass">
+    <part name="parameters" element="tns:FnShowpass" />
+  </message>
+  <message name="FnShowpass_Result">
+    <part name="parameters" element="tns:FnShowpass_Result" />
+  </message>
+  <message name="FnBLOBCustomerStatement">
+    <part name="parameters" element="tns:FnBLOBCustomerStatement" />
+  </message>
+  <message name="FnBLOBCustomerStatement_Result">
+    <part name="parameters" element="tns:FnBLOBCustomerStatement_Result" />
+  </message>
+  <message name="GetOrderShipmentStatus">
+    <part name="parameters" element="tns:GetOrderShipmentStatus" />
+  </message>
+  <message name="GetOrderShipmentStatus_Result">
+    <part name="parameters" element="tns:GetOrderShipmentStatus_Result" />
+  </message>
+  <message name="FnRunJobs">
+    <part name="parameters" element="tns:FnRunJobs" />
+  </message>
+  <message name="FnRunJobs_Result">
+    <part name="parameters" element="tns:FnRunJobs_Result" />
+  </message>
+  <message name="ForgotWEmailPassword">
+    <part name="parameters" element="tns:ForgotWEmailPassword" />
+  </message>
+  <message name="ForgotWEmailPassword_Result">
+    <part name="parameters" element="tns:ForgotWEmailPassword_Result" />
+  </message>
+  <message name="FnRandomize">
+    <part name="parameters" element="tns:FnRandomize" />
+  </message>
+  <message name="FnRandomize_Result">
+    <part name="parameters" element="tns:FnRandomize_Result" />
+  </message>
+  <message name="FnRegister">
+    <part name="parameters" element="tns:FnRegister" />
+  </message>
+  <message name="FnRegister_Result">
+    <part name="parameters" element="tns:FnRegister_Result" />
+  </message>
+  <portType name="ECommerce_Port">
+    <operation name="GetItemImage">
+      <input name="GetItemImage" message="tns:GetItemImage" />
+      <output name="GetItemImage_Result" message="tns:GetItemImage_Result" />
+    </operation>
+    <operation name="AddToCart">
+      <input name="AddToCart" message="tns:AddToCart" />
+      <output name="AddToCart_Result" message="tns:AddToCart_Result" />
+    </operation>
+    <operation name="CheckOut">
+      <input name="CheckOut" message="tns:CheckOut" />
+      <output name="CheckOut_Result" message="tns:CheckOut_Result" />
+    </operation>
+    <operation name="CreateCustomerAccount">
+      <input name="CreateCustomerAccount" message="tns:CreateCustomerAccount" />
+      <output name="CreateCustomerAccount_Result" message="tns:CreateCustomerAccount_Result" />
+    </operation>
+    <operation name="ResetPassword">
+      <input name="ResetPassword" message="tns:ResetPassword" />
+      <output name="ResetPassword_Result" message="tns:ResetPassword_Result" />
+    </operation>
+    <operation name="GetCustomerStatement">
+      <input name="GetCustomerStatement" message="tns:GetCustomerStatement" />
+      <output name="GetCustomerStatement_Result" message="tns:GetCustomerStatement_Result" />
+    </operation>
+    <operation name="RemoveFromCart">
+      <input name="RemoveFromCart" message="tns:RemoveFromCart" />
+      <output name="RemoveFromCart_Result" message="tns:RemoveFromCart_Result" />
+    </operation>
+    <operation name="AddToWishList">
+      <input name="AddToWishList" message="tns:AddToWishList" />
+      <output name="AddToWishList_Result" message="tns:AddToWishList_Result" />
+    </operation>
+    <operation name="RequestHelp">
+      <input name="RequestHelp" message="tns:RequestHelp" />
+      <output name="RequestHelp_Result" message="tns:RequestHelp_Result" />
+    </operation>
+    <operation name="RemoveFromWishlist">
+      <input name="RemoveFromWishlist" message="tns:RemoveFromWishlist" />
+      <output name="RemoveFromWishlist_Result" message="tns:RemoveFromWishlist_Result" />
+    </operation>
+    <operation name="AddToCartFromWishlist">
+      <input name="AddToCartFromWishlist" message="tns:AddToCartFromWishlist" />
+      <output name="AddToCartFromWishlist_Result" message="tns:AddToCartFromWishlist_Result" />
+    </operation>
+    <operation name="GenerateInvoice">
+      <input name="GenerateInvoice" message="tns:GenerateInvoice" />
+      <output name="GenerateInvoice_Result" message="tns:GenerateInvoice_Result" />
+    </operation>
+    <operation name="SendOrderNotification">
+      <input name="SendOrderNotification" message="tns:SendOrderNotification" />
+      <output name="SendOrderNotification_Result" message="tns:SendOrderNotification_Result" />
+    </operation>
+    <operation name="ForgotPassword">
+      <input name="ForgotPassword" message="tns:ForgotPassword" />
+      <output name="ForgotPassword_Result" message="tns:ForgotPassword_Result" />
+    </operation>
+    <operation name="FnShowpass">
+      <input name="FnShowpass" message="tns:FnShowpass" />
+      <output name="FnShowpass_Result" message="tns:FnShowpass_Result" />
+    </operation>
+    <operation name="FnBLOBCustomerStatement">
+      <input name="FnBLOBCustomerStatement" message="tns:FnBLOBCustomerStatement" />
+      <output name="FnBLOBCustomerStatement_Result" message="tns:FnBLOBCustomerStatement_Result" />
+    </operation>
+    <operation name="GetOrderShipmentStatus">
+      <input name="GetOrderShipmentStatus" message="tns:GetOrderShipmentStatus" />
+      <output name="GetOrderShipmentStatus_Result" message="tns:GetOrderShipmentStatus_Result" />
+    </operation>
+    <operation name="FnRunJobs">
+      <input name="FnRunJobs" message="tns:FnRunJobs" />
+      <output name="FnRunJobs_Result" message="tns:FnRunJobs_Result" />
+    </operation>
+    <operation name="ForgotWEmailPassword">
+      <input name="ForgotWEmailPassword" message="tns:ForgotWEmailPassword" />
+      <output name="ForgotWEmailPassword_Result" message="tns:ForgotWEmailPassword_Result" />
+    </operation>
+    <operation name="FnRandomize">
+      <input name="FnRandomize" message="tns:FnRandomize" />
+      <output name="FnRandomize_Result" message="tns:FnRandomize_Result" />
+    </operation>
+    <operation name="FnRegister">
+      <input name="FnRegister" message="tns:FnRegister" />
+      <output name="FnRegister_Result" message="tns:FnRegister_Result" />
+    </operation>
+  </portType>
+  <binding name="ECommerce_Binding" type="tns:ECommerce_Port">
+    <binding transport="http://schemas.xmlsoap.org/soap/http" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    <operation name="GetItemImage">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ECommerce:GetItemImage" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetItemImage">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetItemImage_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="AddToCart">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ECommerce:AddToCart" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="AddToCart">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="AddToCart_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CheckOut">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ECommerce:CheckOut" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CheckOut">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CheckOut_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="CreateCustomerAccount">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ECommerce:CreateCustomerAccount" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="CreateCustomerAccount">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="CreateCustomerAccount_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ResetPassword">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ECommerce:ResetPassword" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ResetPassword">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ResetPassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetCustomerStatement">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ECommerce:GetCustomerStatement" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetCustomerStatement">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetCustomerStatement_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="RemoveFromCart">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ECommerce:RemoveFromCart" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="RemoveFromCart">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="RemoveFromCart_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="AddToWishList">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ECommerce:AddToWishList" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="AddToWishList">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="AddToWishList_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="RequestHelp">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ECommerce:RequestHelp" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="RequestHelp">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="RequestHelp_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="RemoveFromWishlist">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ECommerce:RemoveFromWishlist" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="RemoveFromWishlist">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="RemoveFromWishlist_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="AddToCartFromWishlist">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ECommerce:AddToCartFromWishlist" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="AddToCartFromWishlist">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="AddToCartFromWishlist_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GenerateInvoice">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ECommerce:GenerateInvoice" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GenerateInvoice">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GenerateInvoice_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="SendOrderNotification">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ECommerce:SendOrderNotification" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="SendOrderNotification">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="SendOrderNotification_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ForgotPassword">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ECommerce:ForgotPassword" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ForgotPassword">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ForgotPassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnShowpass">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ECommerce:FnShowpass" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnShowpass">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnShowpass_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnBLOBCustomerStatement">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ECommerce:FnBLOBCustomerStatement" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnBLOBCustomerStatement">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnBLOBCustomerStatement_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="GetOrderShipmentStatus">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ECommerce:GetOrderShipmentStatus" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="GetOrderShipmentStatus">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="GetOrderShipmentStatus_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnRunJobs">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ECommerce:FnRunJobs" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnRunJobs">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnRunJobs_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="ForgotWEmailPassword">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ECommerce:ForgotWEmailPassword" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="ForgotWEmailPassword">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="ForgotWEmailPassword_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnRandomize">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ECommerce:FnRandomize" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnRandomize">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnRandomize_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+    <operation name="FnRegister">
+      <operation soapAction="urn:microsoft-dynamics-schemas/codeunit/ECommerce:FnRegister" style="document" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      <input name="FnRegister">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </input>
+      <output name="FnRegister_Result">
+        <body use="literal" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ECommerce">
+    <port name="ECommerce_Port" binding="tns:ECommerce_Binding">
+      <address location="http://10.0.0.232:8048/LPL/WS/Portal%20Database/Codeunit/ECommerce" xmlns="http://schemas.xmlsoap.org/wsdl/soap/" />
+    </port>
+  </service>
+</definitions>
